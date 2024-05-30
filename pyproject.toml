@@ -1,0 +1,43 @@
+[project]
+name = "hierarchical_state_machine"
+version = "1.0.2"
+description = """\
+    This python library provides an easy-to-learn and easy-to-use API for using Hierarchical State \
+    Machines in your project. The state machine is defined using a basic JSON string, and includes \
+    convenience timers.\
+"""
+authors = [
+    { name = "Dan Tebbs", email = "dantebbs@gmail.com" },
+]
+license = { text = "MIT" }
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+	"License :: OSI Approved :: MIT License",
+	"Operating System :: OS Independent",
+]
+requires-python = ">=3.8"
+dependencies = [
+    "requests>2",
+]
+
+[project.optional-dependencies]
+examples = [ 'curses' ]
+
+[project.urls]
+"Homepage" = "https://github.com/dantebbs/hierarchical_state_machine"
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
+[tool.pdm]
+distribution = true
+
+[tool.pdm.build]
+source-includes = ["src/", "tests/"]
+includes = [
+    "example/pedestrian_crosswalk/hierarchical_example_pedestrian_crosswalk_signaler.png",
+]
+[tool.pdm.build.wheel-data]
+include = [{path = "example/pedestrian_crosswalk/hierarchical_example_pedestrian_crosswalk_signaler.png"}]
