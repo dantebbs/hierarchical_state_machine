@@ -57,7 +57,7 @@ import re
 import time
 from datetime import datetime
 import threading
-from state_machine_state import state, debug_flags
+from hierarchical_state_machine.state_machine_state import state, debug_flags
 
 
 # A handy function used in this module to help implement the Timer class.

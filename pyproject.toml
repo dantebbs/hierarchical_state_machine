@@ -4,7 +4,7 @@ requires = [ "setuptools" ]
 
 [project]
 name = "hierarchical_state_machine"
-version = "1.0.11"
+version = "1.0.16"
 license = {file = "LICENSE.txt"}
 
 description = """\
@@ -33,7 +33,7 @@ classifiers = [
     #   3 - Alpha
     #   4 - Beta
     #   5 - Production/Stable
-    "Development Status :: 3 - Alpha",
+    "Development Status :: 4 - Beta",
 
     "Intended Audience :: Developers",
 	"Intended Audience :: Education",
@@ -61,4 +61,17 @@ keywords = [ "hierarchical", "state", "machine", "hsm", "State Machine", "State-
 examples = [ 'curses' ]
 
 [project.urls]
-"Homepage" = "https://github.com/dantebbs/hierarchical_state_machine"
+"Repository" = "https://github.com/dantebbs/hierarchical_state_machine"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = [
+    ".",
+]
+
+[tool.setuptools.package-data]
+"*" = [
+    "*.pdf",
+]

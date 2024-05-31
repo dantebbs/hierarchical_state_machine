@@ -157,13 +157,20 @@ pedestrian_crosswalk_signals = """
 }
 """
 
-import state_machine
 import sys
+
 try:
     import curses
-except:
-    print("This example script requires the 'curses' module. Before trying again, run: pip install windows-curses")
+except ImportError:
+    print( "This example script requires the 'curses' module. Before trying again, run: python -m pip install windows-curses" )
+    exit( 1 )
+
+try:
+    import hierarchical_state_machine as hsm
+except ImportError:
+    print("This example script requires the 'hierarchical_state_machine' module. Before trying again, run: python -m pip install hierarchical_state_machine")
     exit(1)
+
 import ascii_crosswalk
 
 
@@ -228,14 +235,14 @@ def main(stdscr):
     ascii = ascii_crosswalk.ascii_crosswalk(stdscr)
 
     # Set desired flags before instantiation.
-    #state_machine.debug_flags.set("machine_parse")
-    #state_machine.debug_flags.set("execution_details")
-    state_machine.debug_flags.set("enter_exit")
-    state_machine.debug_flags.set("transitions")
+    #hsm.debug_flags.set("machine_parse")
+    #hsm.debug_flags.set("execution_details")
+    hsm.debug_flags.set("enter_exit")
+    hsm.debug_flags.set("transitions")
 
     # Now that all the call-back functions are defined, create the machine.
     global crosswalk
-    crosswalk = state_machine.state_machine( pedestrian_crosswalk_signals, callbacks_module, proc_period_ms )
+    crosswalk = hsm.state_machine( pedestrian_crosswalk_signals, callbacks_module, proc_period_ms )
 
     global quit
     while (not quit):
