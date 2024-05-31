@@ -1,6 +1,12 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [ "setuptools" ]
+
 [project]
 name = "hierarchical_state_machine"
-version = "1.0.2"
+version = "1.0.11"
+license = {file = "LICENSE.txt"}
+
 description = """\
     This python library provides an easy-to-learn and easy-to-use API for using Hierarchical State \
     Machines in your project. The state machine is defined using a basic JSON string, and includes \
@@ -9,35 +15,50 @@ description = """\
 authors = [
     { name = "Dan Tebbs", email = "dantebbs@gmail.com" },
 ]
-license = { text = "MIT" }
+requires-python = ">=3.8"
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3",
-	"License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+	"Programming Language :: Python :: 3 :: Only",
+	
+    "License :: OSI Approved :: MIT License",
 	"Operating System :: OS Independent",
+
+    # How mature is this project? Common values are
+    #   3 - Alpha
+    #   4 - Beta
+    #   5 - Production/Stable
+    "Development Status :: 3 - Alpha",
+
+    "Intended Audience :: Developers",
+	"Intended Audience :: Education",
+	"Topic :: File Formats :: JSON",
+	"Topic :: Games/Entertainment",
+	"Topic :: Home Automation",
+	"Topic :: Scientific/Engineering",
+	"Topic :: Scientific/Engineering :: Electronic Design Automation (EDA)",
+	"Topic :: Scientific/Engineering :: Human Machine Interfaces",
+	"Topic :: Scientific/Engineering :: Information Analysis",
+	"Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator",
+	"Topic :: Software Development :: Assemblers",
+    "Topic :: Software Development :: Build Tools",
+	"Topic :: Software Development :: Code Generators",
+	"Topic :: Software Development :: Compilers",
+	"Topic :: Software Development :: Disassemblers",
+	"Topic :: Software Development :: Embedded Systems",
+	"Topic :: Software Development :: Libraries",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+	"Topic :: System :: Hardware :: Hardware Drivers",
 ]
-requires-python = ">=3.8"
-dependencies = [
-    "requests>2",
-]
+keywords = [ "hierarchical", "state", "machine", "hsm", "State Machine", "State-Machine", "statemachine", "sm" ]
 
 [project.optional-dependencies]
 examples = [ 'curses' ]
 
 [project.urls]
 "Homepage" = "https://github.com/dantebbs/hierarchical_state_machine"
-
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
-
-[tool.pdm]
-distribution = true
-
-[tool.pdm.build]
-source-includes = ["src/", "tests/"]
-includes = [
-    "example/pedestrian_crosswalk/hierarchical_example_pedestrian_crosswalk_signaler.png",
-]
-[tool.pdm.build.wheel-data]
-include = [{path = "example/pedestrian_crosswalk/hierarchical_example_pedestrian_crosswalk_signaler.png"}]
